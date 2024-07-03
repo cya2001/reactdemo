@@ -2,13 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter,RouterProvider } from 'react-router-dom';
-
+import { BrowserRouter} from 'react-router-dom';
+import Header from './components/header.tsx';
+import ActiveSectionContextProvider from './context/active-section-context.tsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    <ActiveSectionContextProvider>
+      <Header/>
+      <App />    
+    </ActiveSectionContextProvider>
   </BrowserRouter>
     
 );

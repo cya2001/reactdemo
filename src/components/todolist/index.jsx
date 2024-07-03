@@ -2,8 +2,11 @@ import { useState } from 'react';
 
 import TodoInput from './input';
 import TodoTable from './table';
+import { useSectionInView } from '../../lib/hooks.ts'
 
 export default function Todolist() {
+  
+  const {ref} = useSectionInView('Todolist')
 
   const [tasks,setTasks] = useState([
     { id: 0, task: 't1', flag: false },
@@ -30,7 +33,10 @@ export default function Todolist() {
   }
 
   return (
-    <div>
+    <div style={{ border: '6px solid #f56565', borderRadius: '0.5rem', padding: '1rem' }}
+      id='todolist'
+      ref={ref}
+    >
       <TodoInput addTask={addTask}></TodoInput>
       <TodoTable task={tasks} toggleTaskStatus={toggleTaskStatus}></TodoTable>
     </div>

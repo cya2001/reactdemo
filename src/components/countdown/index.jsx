@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useSectionInView } from '../../lib/hooks.ts'
 
 export default function Countdown() {
+  const {ref} = useSectionInView('Countdown')
   const timer = 5;
   const [time,setTime] =  useState(timer);
   const [isRunning,setIsRunning] = useState(false);
@@ -61,7 +63,10 @@ export default function Countdown() {
   };
   
   return (
-    <div>
+    <div style={{ border: '6px solid #f56565', borderRadius: '0.5rem', padding: '1rem' }}
+      id='countdown'
+      ref={ref}
+    >
       <h2>{formatTime(time)}</h2>
       <button onClick={handleStart}>start</button>
       { isRunning?(<button onClick={handlePause}>pause</button>):('')}
