@@ -1,0 +1,48 @@
+.tree {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tree_item {
+  margin-bottom: 8px;
+}
+
+.tree_title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.folder {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.folder.open {
+  transform: rotate(45deg);
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox.checked::after {
+  content: '✓';
+  color: #1c1b1b;
+  display: block;
+}
+
+.item {
+  /* flex-grow: 1; */
+}
